@@ -3,6 +3,9 @@ from fastapi import FastAPI
 
 app = FastAPI()
 
+# Write a file
+with open("/app/data.txt","w") as of:
+    of.write("HELLO?\n")
 
 @app.get("/")
 def read_root():
