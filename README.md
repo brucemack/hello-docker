@@ -10,7 +10,7 @@ Context control:
         docker context create --docker host=tcp://192.168.8.102:2375 pi4
         docker context use pi4
 
-Build Container into local registry:
+Build Container image into local registry:
 
         docker build -t myimage .
         docker image ls
@@ -18,6 +18,14 @@ Build Container into local registry:
 Run container from local registry:
 
         docker run -d --name mycontainer --restart=unless-stopped -p 8080:80 myimage
+
+Listing running containers:
+
+        docker container ls
+
+Stop container:
+
+        docker container stop mycontainer
 
 Tag the container, uplaod it, and run it from Dockerhub:
 
@@ -45,3 +53,9 @@ Looking at the volume using a special-purpose container:
 
         docker run --rm -i -v=myvol:/app busybox ls /app        
         docker run --rm -i -v=myvol:/app busybox cat /app/data.txt        
+
+References
+==========
+
+* [Installing on RPI](https://www.digikey.com/en/maker/tutorials/2023/how-to-install-and-setup-docker-on-a-raspberry-pi)
+* [FastPI Tutorial](https://fastapi.tiangolo.com/deployment/docker/)
